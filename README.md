@@ -1,5 +1,3 @@
-Here's a revised `README.md` that reflects your ownership of the project while keeping the original structure and useful info. I've updated the intro, clarified your role, and made it more suitable for showcasing your project to others:
-
 ---
 
 # Tubely - Video Storage Platform with Go + AWS S3 + SQLite
