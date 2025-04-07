@@ -101,10 +101,10 @@ This will:
 - [x] Video upload to S3
 - [x] Metadata storage in SQLite
 - [x] Basic UI with video player
-- [ ] JWT user auth system
-- [ ] User dashboard to manage uploads
-- [ ] S3 file expiration / cleanup
-
+- [x] JWT user auth system
+- [x] User dashboard to manage uploads
+- [x] S3 file expiration / cleanup
+- [ ] Keep optimization
 ---
 
 ## License
