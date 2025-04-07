@@ -27,6 +27,7 @@ type apiConfig struct {
 }
 
 func main() {
+
 	err := godotenv.Load(".env")
 	if err != nil {
 		log.Fatal("Error loading .env file")
@@ -136,4 +137,5 @@ func main() {
 
 	log.Printf("Serving on: http://localhost:%s/app/\n", port)
 	log.Fatal(srv.ListenAndServe())
+
 }

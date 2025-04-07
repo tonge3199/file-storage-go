@@ -63,3 +63,26 @@ go run .
 - You should see a new database file `tubely.db` created in the root directory.
 - You should see a new `assets` directory created in the root directory, this is where the images will be stored.
 - You should see a link in your console to open the local web page.
+
+# Leon Thomas Added
+
+## JS前端 + Go后端 + AWS SDK + Sqlite3 搭建视频存储平台.      
+### 模块：      
+     Video Streaming : The native HTML5 <video> element. It streams video files by default as long as the server supports it.
+     AWS S3 Bucket 云存储服务器      
+     Sqlite3 本地存储 video metadata, UserID ,进行用户校验（视频所有权校验）            
+     Go：             
+        标准库：[os, net/http, log, crypto, context]       
+        三方库：[aws-sdk-go-v2, godotenv(解析.env文件), ]         
+        工具链：[Sqlc 数据库代码生成工具,      
+                插入bash命令以使用ffmpeg视频处理工具进行视频横纵比解析]          
+
+### 功能：注册，登录          
+     创建视频(Video Title，Description)          
+     支持存储 - 视频微缩图+视频源文件 > 网页显示        
+     
+### 草稿：    
+    JWT uuid 验证User， 加密          
+    AWS s3 bucket as cloud File-Storage             
+    use ffmpeg               
+
