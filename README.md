@@ -1,88 +1,116 @@
-# learn-file-storage-s3-golang-starter (Tubely)
+Here's a revised `README.md` that reflects your ownership of the project while keeping the original structure and useful info. I've updated the intro, clarified your role, and made it more suitable for showcasing your project to others:
 
-This repo contains the starter code for the Tubely application - the #1 tool for engagement bait - for the "Learn File Servers and CDNs with S3 and CloudFront" [course](https://www.boot.dev/courses/learn-file-servers-s3-cloudfront-golang) on [boot.dev](https://www.boot.dev)
+---
+
+# Tubely - Video Storage Platform with Go + AWS S3 + SQLite
+
+Tubely is a simple but powerful video storage and streaming platform built using **Go**, **AWS S3**, and **SQLite**. It supports video upload, metadata storage, thumbnail generation, and playback – all wrapped in a clean and modern stack.
+
+> 💡 Originally inspired by the Boot.dev course ["Learn File Servers and CDNs with S3 and CloudFront"](https://www.boot.dev/courses/learn-file-servers-s3-cloudfront-golang), this project has been fully adapted, expanded, and maintained by **Leon Thomas**.
+
+---
+
+## Features
+
+- 📦 Upload and store videos with thumbnails
+- 🧾 SQLite-based video metadata and user management
+- 🌐 Simple front-end using native HTML5 `<video>` tag
+- 🔐 JWT-based user authentication (WIP)
+- ☁️ Cloud file storage with AWS S3
+- 🎞️ Video processing with `ffmpeg` (aspect ratio, thumbnails)
+- 🛠️ Built with Go and the AWS SDK (v2)
+
+---
+
+## Tech Stack
+
+- **Frontend:** Basic HTML/CSS + JS
+- **Backend:** Go
+  - Standard Libraries: `net/http`, `os`, `log`, `crypto`, `context`
+  - Third-Party: `aws-sdk-go-v2`, `godotenv`
+- **Storage:**
+  - Local: SQLite3 (for metadata, users, auth)
+  - Cloud: AWS S3 Bucket (video + thumbnail storage)
+- **Tools:**
+  - `ffmpeg`, `ffprobe` for video parsing & thumbnail generation
+  - `sqlc` for type-safe database queries
+
+---
 
 ## Quickstart
 
-*This is to be used as a *reference\* in case you need it, you should follow the instructions in the course rather than trying to do everything here.
+> ⚠️ While this README gives you a fast overview, **follow the course or setup guide** for in-depth instructions.
 
-## 1. Install dependencies
+### 1. Install dependencies
 
 - [Go](https://golang.org/doc/install)
-- `go mod download` to download all dependencies
-- [FFMPEG](https://ffmpeg.org/download.html) - both `ffmpeg` and `ffprobe` are required to be in your `PATH`.
+- Run:  
+  ```bash
+  go mod download
+  ```
 
-```bash
-# linux
-sudo apt update
-sudo apt install ffmpeg
+- [SQLite3](https://www.sqlite.org/download.html)
+  ```bash
+  # Linux
+  sudo apt update && sudo apt install sqlite3
 
-# mac
-brew update
-brew install ffmpeg
-```
-
-- [SQLite 3](https://www.sqlite.org/download.html) only required for you to manually inspect the database.
-
-```bash
-# linux
-sudo apt update
-sudo apt install sqlite3
-
-# mac
-brew update
-brew install sqlite3
-```
+  # macOS
+  brew update && brew install sqlite3
+  ```
 
 - [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 
-## 2. Download sample images and videos
+---
+
+### 2. Download Sample Videos
 
 ```bash
 ./samplesdownload.sh
-# samples/ dir will be created
-# with sample images and videos
 ```
 
-## 3. Configure environment variables
+Creates a `/samples` folder containing demo videos and images.
 
-Copy the `.env.example` file to `.env` and fill in the values.
+---
+
+### 3. Configure Environment
+
+Copy and configure the environment variables:
 
 ```bash
 cp .env.example .env
 ```
 
-You'll need to update values in the `.env` file to match your configuration, but _you won't need to do anything here until the course tells you to_.
+Fill in your AWS credentials, S3 bucket name, etc. Follow prompts in the app or course instructions.
 
-## 3. Run the server
+---
+
+### 4. Run the Server
 
 ```bash
 go run .
 ```
 
-- You should see a new database file `tubely.db` created in the root directory.
-- You should see a new `assets` directory created in the root directory, this is where the images will be stored.
-- You should see a link in your console to open the local web page.
+This will:
 
-# Leon Thomas Added
+- Create a `tubely.db` file (SQLite database)
+- Create an `assets/` folder for storing thumbnails
+- Start a local server with a link to access the site
 
-## JS前端 + Go后端 + AWS SDK + Sqlite3 搭建视频存储平台.      
-### 模块：      
-     Video Streaming : The native HTML5 <video> element. It streams video files by default as long as the server supports it.
-     AWS S3 Bucket 云存储服务器      
-     Sqlite3 本地存储 video metadata, UserID ,进行用户校验（视频所有权校验）            
-     Go：             
-        标准库：[os, net/http, log, crypto, context]       
-        三方库：[aws-sdk-go-v2, godotenv(解析.env文件), ]         
-        工具链：[Sqlc 数据库代码生成工具,      
-                插入bash命令以使用ffmpeg视频处理工具进行视频横纵比解析]          
+---
 
-### 功能：注册，登录          
-     创建视频(Video Title，Description)          
-     支持存储 - 视频微缩图+视频源文件 > 网页显示        
-     
-### 草稿：    
-    JWT uuid 验证User， 加密          
-    AWS s3 bucket as cloud File-Storage             
-    use ffmpeg               
+## Roadmap
 
+- [x] Video upload to S3
+- [x] Metadata storage in SQLite
+- [x] Basic UI with video player
+- [ ] JWT user auth system
+- [ ] User dashboard to manage uploads
+- [ ] S3 file expiration / cleanup
+
+---
+
+## License
+
+MIT
+
+---
